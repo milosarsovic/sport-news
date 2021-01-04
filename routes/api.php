@@ -17,5 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::post("author/create", [\App\Http\Controllers\AuthorController::class, "createAuthor"]);
 Route::get("author/delete/{id}", [\App\Http\Controllers\AuthorController::class, "deleteAuthor"]);
 Route::post("category/create",[\App\Http\Controllers\CategoryController::class, "createCategory"]);
+Route::get("category/delete/{id}", [\App\Http\Controllers\CategoryController::class, "deleteCategory"]);
+Route::get("category/all", [\App\Http\Controllers\CategoryController::class, "allCategories"]);
+
 
 
