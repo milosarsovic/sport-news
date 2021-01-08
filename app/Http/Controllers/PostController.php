@@ -25,4 +25,16 @@ class PostController extends Controller
         return response($post->author);
 
     }
+
+    public function categoryPosts ($categoryId){
+        $posts = Post::where("category_id","=",$categoryId)->get();
+        return response($posts);
+
+    }
+
+    public function authorPosts ($authorId){
+        $posts = Post::where("author_id", "=", $authorId)->get();
+        return response ($posts);
+
+    }
 }
