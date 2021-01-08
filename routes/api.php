@@ -23,6 +23,10 @@ Route::post("post/create", [\App\Http\Controllers\PostController::class, "create
 Route::get("post/get/{id}",[\App\Http\Controllers\PostController::class,"getPost"]);
 Route::get("posts/category/{categoryId}",[\App\Http\Controllers\PostController::class,"categoryPosts"]);
 Route::get("posts/author/{authorId}", [\App\Http\Controllers\PostController::class, "authorPosts"]);
+Route::post("comment/new", [\App\Http\Controllers\CommentController::class, "newComment"]);
+Route::get("post/comments/{postId}", [\App\Http\Controllers\PostController::class, "getPostComments"]);
+Route::get("comment/like/{id}",[\App\Http\Controllers\CommentController::class,"likeComment"]);
+
 
 
 

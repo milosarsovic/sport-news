@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -35,6 +36,14 @@ class PostController extends Controller
     public function authorPosts ($authorId){
         $posts = Post::where("author_id", "=", $authorId)->get();
         return response ($posts);
+
+    }
+
+    public function getPostComments ($postId){
+        $comments = Comment::where("post_id", "=", $postId)->orderBy("likes", "desc")->get ();
+        return response ($comments);
+
+
 
     }
 }
