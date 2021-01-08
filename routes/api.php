@@ -19,6 +19,8 @@ Route::get("author/delete/{id}", [\App\Http\Controllers\AuthorController::class,
 Route::post("category/create",[\App\Http\Controllers\CategoryController::class, "createCategory"]);
 Route::get("category/delete/{id}", [\App\Http\Controllers\CategoryController::class, "deleteCategory"]);
 Route::get("category/all", [\App\Http\Controllers\CategoryController::class, "allCategories"]);
+Route::post("post/create", [\App\Http\Controllers\PostController::class, "createPost"]);
+Route::get("post/get/{id}",[\App\Http\Controllers\PostController::class,"getPost"]);
 
 
 
