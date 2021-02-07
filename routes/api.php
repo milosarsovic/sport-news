@@ -26,6 +26,12 @@ Route::get("posts/author/{authorId}", [\App\Http\Controllers\PostController::cla
 Route::post("comment/new", [\App\Http\Controllers\CommentController::class, "newComment"]);
 Route::get("post/comments/{postId}", [\App\Http\Controllers\PostController::class, "getPostComments"]);
 Route::get("comment/like/{id}",[\App\Http\Controllers\CommentController::class,"likeComment"]);
+Route::post("admin/create",[\App\Http\Controllers\AdminController::class, "createAdmin"]);
+Route::get("admin/author/{id}",[\App\Http\Controllers\AdminController::class, "getAuthor"]);
+Route::get("author/admin/{id}",[\App\Http\Controllers\AdminController::class,"getAdmin"]);
+Route::post("login",[\App\Http\Controllers\AdminController::class,"login"]);
+
+
 
 
 
