@@ -32,8 +32,21 @@ Route::get("author/admin/{id}",[\App\Http\Controllers\AdminController::class,"ge
 Route::post("login",[\App\Http\Controllers\AdminController::class,"login"]);
 
 
+Route::middleware([\App\Http\Middleware\Test::class])->group(function () {
 
 
+
+
+    Route::get("checkMiddleware",[\App\Http\Controllers\Controller::class,"checkMiddleware"]);
+
+
+
+
+});
+Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function(){
+    Route::get("getAuthor",[\App\Http\Controllers\AdminController::class,"getAuthor"]);
+
+});
 
 
 

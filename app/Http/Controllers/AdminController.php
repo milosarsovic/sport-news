@@ -23,8 +23,8 @@ class AdminController extends Controller
 
 
     }
-    public function getAuthor($id){
-        $admin=Admin::find($id);
+    public function getAuthor(){
+        $admin= Auth::user();
         return response($admin->author);
 
     }
