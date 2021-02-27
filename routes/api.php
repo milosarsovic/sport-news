@@ -47,6 +47,10 @@ Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function
     Route::get("getAuthor",[\App\Http\Controllers\AdminController::class,"getAuthor"]);
 
 });
+Route::post("Action/create", [\App\Http\Controllers\ActionController::class,"newAction"]);
+Route::get("Action/user/{id}",[\App\Http\Controllers\ActionController::class,"getUser"]);
+Route::get("user/Actions/{id}", [\App\Http\Controllers\ActionController::class,"findUser"]);
+
 
 
 
