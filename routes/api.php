@@ -50,6 +50,8 @@ Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function
 Route::post("Action/create", [\App\Http\Controllers\ActionController::class,"newAction"]);
 Route::get("Action/user/{id}",[\App\Http\Controllers\ActionController::class,"getUser"]);
 Route::get("user/Actions/{id}", [\App\Http\Controllers\ActionController::class,"findUser"]);
+Route::post("user/register",[\App\Http\Controllers\UserController::class, "register"]);
+Route::post("user/login",[\App\Http\Controllers\UserController::class, "login"]);
 
 
 
