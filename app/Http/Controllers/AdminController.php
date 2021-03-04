@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Author;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -52,6 +53,22 @@ class AdminController extends Controller
         return response($admin);
 
 
+
+
+    }
+
+    public function createPost (Request $request){
+
+        $admin=Auth::user();
+
+        $post=new Post();
+        $post->title=$request->json("title");
+        $post->text=$request->json("text");
+        $post->picture=$request->json("picture");
+        $post->category_id=$request->json("category_id");
+        $post->author_id= $admin->author_id;
+        $post->save();
+        return response($post);
 
 
     }

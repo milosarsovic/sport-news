@@ -70,6 +70,26 @@ class UserController extends Controller
 
     }
 
+    public function testMiddleware(){
+        $user=Auth::user();
+        return response($user);
+
+    }
+
+    public function testMiddleware2(){
+        $korisnik=Auth::user();
+
+
+        $action=new Action();
+        $action->user_id= $korisnik->id;
+        $action->actions="misa lav";
+        $action-> save();
+
+
+        return response($korisnik);
+
+    }
+
 
 
 }

@@ -45,6 +45,7 @@ Route::middleware([\App\Http\Middleware\Test::class])->group(function () {
 });
 Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function(){
     Route::get("getAuthor",[\App\Http\Controllers\AdminController::class,"getAuthor"]);
+    Route::post("amind/post/create",[\App\Http\Controllers\AdminController::class, "createPost"]);
 
 });
 Route::post("Action/create", [\App\Http\Controllers\ActionController::class,"newAction"]);
@@ -52,6 +53,13 @@ Route::get("Action/user/{id}",[\App\Http\Controllers\ActionController::class,"ge
 Route::get("user/Actions/{id}", [\App\Http\Controllers\ActionController::class,"findUser"]);
 Route::post("user/register",[\App\Http\Controllers\UserController::class, "register"]);
 Route::post("user/login",[\App\Http\Controllers\UserController::class, "login"]);
+
+
+
+Route::middleware([\App\Http\Middleware\UserMiddleware::class])->group(function (){
+   Route::get("testMiddleware",[\App\Http\Controllers\UserController::class,"testMiddleware"]);
+    Route::get("testMiddleware2",[\App\Http\Controllers\UserController::class,"testMiddleware2"]);
+});
 
 
 
