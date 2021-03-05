@@ -46,4 +46,11 @@ class PostController extends Controller
 
 
     }
+    public function getComments($id){
+        $post=Post::find($id);
+        if (!$post){
+            return response("post not found",404);
+        }
+        return response($post->comments);
+    }
 }

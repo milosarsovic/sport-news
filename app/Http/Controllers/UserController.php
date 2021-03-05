@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Action;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -87,6 +88,16 @@ class UserController extends Controller
 
 
         return response($korisnik);
+
+    }
+    public function newComment(Request $request){
+        $comment=new Comment();
+        $comment->name=$request ->json("name");
+        $comment->text=$request->json("text");
+        $comment->post_id=$request->json("post_id");
+        $comment->user_id=Auth::user()->id;
+        $comment->save();
+        return response("$comment");
 
     }
 

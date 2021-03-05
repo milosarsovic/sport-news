@@ -59,7 +59,10 @@ Route::post("user/login",[\App\Http\Controllers\UserController::class, "login"])
 Route::middleware([\App\Http\Middleware\UserMiddleware::class])->group(function (){
    Route::get("testMiddleware",[\App\Http\Controllers\UserController::class,"testMiddleware"]);
     Route::get("testMiddleware2",[\App\Http\Controllers\UserController::class,"testMiddleware2"]);
+    Route::post("newComment", [\App\Http\Controllers\UserController::class,"newComment"]);
 });
+Route::get("getComments/{id}",[\App\Http\Controllers\PostController::class,"getComments"]);
+
 
 
 
